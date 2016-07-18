@@ -13,6 +13,10 @@ RUN dotnet restore
 
 RUN dotnet build
 
-EXPOSE 5000
+RUN dotnet publish
 
-CMD ["dotnet", "run"]  
+COPY bin/Debug/netcoreapp1.0/publish/ /usr/src/dncore/dncore-seed
+
+EXPOSE 5000/tcp
+
+ENTRYPOINT dotnet /usr/src/dncore/dncore-seed/testapp.dll
