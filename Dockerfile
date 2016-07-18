@@ -15,8 +15,6 @@ RUN dotnet build
 
 RUN dotnet publish
 
-COPY bin/Debug/netcoreapp1.0/publish/ /usr/src/dncore/dncore-seed
-
 EXPOSE 5000/tcp
 
-ENTRYPOINT dotnet /usr/src/dncore/dncore-seed/testapp.dll
+ENTRYPOINT dotnet /usr/src/dncore/dncore-seed/bin/Debug/netcoreapp1.0/publish/dncore-seed.dll
